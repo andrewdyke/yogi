@@ -2,8 +2,9 @@
 // Coded by Andrew Dyke Oct. 2015
 // Design from Template
 
-
-@import "setup";
+@import 'colors';
+@import 'hamburger';
+@import 'setup';
 
 $red: #fe6367;
 $black: #2a2a2a;
@@ -19,6 +20,7 @@ $lightgray: #eeeeee;
 	font: .8rem;
 	text-transform: none;
 }
+
 @mixin fontSize($number) {
 	font-size: $number * 1px;
 	font-size: ($number / 10) * 1rem;
@@ -104,7 +106,8 @@ a {
 /* NAV ****************************************/
 
 nav {
-	position: relative;
+	position: fixed;
+	width: 100%;
 	z-index: 9999;
 	background:$black;
 	padding: 20px 0;
@@ -170,17 +173,13 @@ nav {
 
 header {
 	background: url(../assets/header-herobg.jpg) no-repeat center center;
-	height:75vh;
-	background-size:cover;
-	position:relative;
-	color: white;
-	.wrap50 {
-		flex: 1 0 auto;
-		overflow: hidden;
-	}	
+	min-height: 75vh;
+	background-size: cover;
+	height: 90vh;
+	position: relative;
+	color: rgb(255, 255, 255);
 	h1 {position: relative;
 		z-index: 999;
-		max-width: 52%;
 		color:white;
 		margin: 0;
 		font-size: 4.6rem;
@@ -205,7 +204,7 @@ header {
 	display: flex;	
 	flex-wrap: wrap;
 	flex-direction: row;
-	justify-content: space-around;
+	// justify-content: space-around;
 	align-items: center;
 	position: relative;
 	height: 100%;	
@@ -614,7 +613,6 @@ form.email {
 		}
 }
 
-
 /* COPYRIGHT */
 
 .copyRight {
@@ -627,130 +625,5 @@ form.email {
 	}
 }
 
+@import 'responsive';
 
-
-// MEDIA QUERIES
-
-@media (max-width: 1250px) {
-header	h1 {
-		max-width: 80%;
-	}
-}
-
-@media (max-width: 1080px) {
-	header	h1 {
-			margin: 0;
-	}
-	.flexNav a:first-child {
-	    flex: 1 0 0%;
-	}
-	.flexNav ul {
-		flex:2 0 25%;
-	}
-	.packBox {
-		flex: 1 0 calc(50% - 40px);
-	}
-	.footBox {
-		flex: 1 0 calc(50% - 40px);
-		max-width: 257px;
-	}
-		@media (max-width: 940px) {
-			.flexHeader ul {
-				flex: 1 0 70%;
-			}
-			.yogaGirl {
-				width: 67%;
-			}
-			.trainBox {
-				flex: 1 0 calc(50% - 20px);
-			}
-			.blog {
-				flex-direction: column;
-				align-items: center;
-			}
-			.blogPost {
-				max-width: 600px;
-			}
-			.packBox {
-				min-width: calc(50% - 40px);
-				max-width: 320px;
-				margin: 40px 0 0;
-			}
-		}
-}
- 
-/* Landscape phones and down */
-@media (max-width: 480px) {
-	.wrapper { 
-		max-width: 460px;
-		display: block;
-	}
-	header h1 {
-		font-size: 4rem;
-	}
-	header p {
-		margin-top: 20px;
-	}
-	.flexNav ul {
-		// display: none;
-		li:last-child {
-			// display:block;
-		}
-	}
-	.wrap50 {
-		width:80%;
-	}
-	.flexHeaderWrap {
-		padding: 30px 0;
-		align-items: initial;
-	}
-	.yogaGirl {
-		width: 100%;
-		bottom: -40px;
-	}
-	.flexWrap {
-		display: block;
-	}
-	.trainBox {
-		min-width: 100%;
-		display: block;
-		margin: 20px 0;
-	}
-	.blog {
-		display: block;
-	}
-	.blogPost {
-		margin: 30px 0;
-		display:block;
-		div {
-			display: block;
-		}
-	}
-	div.flexWrap.space {
-		flex-direction: column;
-		display: block;
-	}
-	.signUp p:nth-child(2) {
-    padding: 0 20px;
-		}
-	.footBox {
-		flex: 1 0 calc(100% - 40px);
-    max-width: 100%;
-   	padding-bottom: 30px;
-   	border-bottom: 1px solid #514F4F;
-   	margin: 0 0 50px;
-    .social {
-    	display: flex;
-    }
-	}
-	.packBox {
-		min-width: 60%;
-		max-width: 100%;
-		margin: 0 0 20px;
-	}
-
-}
-
-.footBox p {
-	line-height: 24px;
-}

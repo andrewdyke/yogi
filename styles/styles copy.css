@@ -1,80 +1,3 @@
-.hamNav {
-  position: fixed;
-  top: 82px;
-  width: 100%;
-  height: 100%;
-  display: none;
-  padding: 0;
-  background: #2a2a2a; }
-  .hamNav ul, .hamNav li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center; }
-    .hamNav ul a, .hamNav li a {
-      display: block;
-      width: 100%;
-      border-bottom: 1px solid #313131;
-      padding: 25px 0;
-      font-size: 2em;
-      font-weight: 100;
-      line-height: 100%;
-      color: #666666;
-      text-decoration: none;
-      transition: color 0.2s, background 0.3s; }
-      .hamNav ul a:hover, .hamNav li a:hover {
-        background: #fe6367;
-        color: #2a2a2a;
-        cursor: pointer; }
-
-.toggle {
-  margin: 15px;
-  font-size: 0;
-  font-family: a;
-  position: absolute;
-  display: none;
-  z-index: 99999999999999;
-  background: #2a2a2a;
-  border: none;
-  width: 50px;
-  height: 50px;
-  top: 0px;
-  right: 0px; }
-  .toggle span, .toggle:before, .toggle:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 30px;
-    height: 3.25px;
-    background: #666666;
-    top: 0;
-    left: 0;
-    transition: background 0.2s, opacity 0.1s, -webkit-transform 0.2s;
-    transition: transform 0.2s, background 0.2s, opacity 0.1s;
-    transition: transform 0.2s, background 0.2s, opacity 0.1s, -webkit-transform 0.2s; }
-  .toggle span {
-    -webkit-transform: translate3d(10px, 23.375px, 0);
-            transform: translate3d(10px, 23.375px, 0); }
-  .toggle:before {
-    -webkit-transform: translate3d(10px, 12.54167px, 0);
-            transform: translate3d(10px, 12.54167px, 0); }
-  .toggle:after {
-    -webkit-transform: translate3d(10px, 34.20833px, 0);
-            transform: translate3d(10px, 34.20833px, 0); }
-  .toggle:hover span, .toggle:hover:before, .toggle:hover:after {
-    background: #fe6367; }
-  .toggle.open span {
-    opacity: 0; }
-  .toggle.open:before {
-    -webkit-transform: translate3d(10px, 23.375px, 0) rotate(90deg);
-            transform: translate3d(10px, 23.375px, 0) rotate(90deg); }
-  .toggle.open:after {
-    -webkit-transform: translate3d(10px, 23.375px, 0) rotate(0deg);
-            transform: translate3d(10px, 23.375px, 0) rotate(0deg); }
-  .toggle:focus, .toggle:active {
-    outline: none;
-    border: none; }
-
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
@@ -271,8 +194,7 @@ a {
 
 /* NAV ****************************************/
 nav {
-  position: fixed;
-  width: 100%;
+  position: relative;
   z-index: 9999;
   background: #2a2a2a;
   padding: 20px 0;
@@ -349,14 +271,19 @@ nav {
 /* HEADER *************************** */
 header {
   background: url(../assets/header-herobg.jpg) no-repeat center center;
-  min-height: 75vh;
+  height: 75vh;
   background-size: cover;
-  height: 90vh;
   position: relative;
   color: white; }
+  header .wrap50 {
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    overflow: hidden; }
   header h1 {
     position: relative;
     z-index: 999;
+    max-width: 52%;
     color: white;
     margin: 0;
     font-size: 4.6rem;
@@ -383,6 +310,9 @@ header {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -724,6 +654,10 @@ form.email {
     margin: 0;
     padding: 50px 0; }
 
+@media (max-width: 1250px) {
+  header h1 {
+    max-width: 80%; } }
+
 @media (max-width: 1080px) {
   header h1 {
     margin: 0; }
@@ -770,12 +704,6 @@ form.email {
     max-width: 320px;
     margin: 40px 0 0; } }
 
-@media (max-width: 768px) {
-  .toggle {
-    display: block; }
-  .flexNav ul {
-    display: none; } }
-
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .wrapper {
@@ -786,8 +714,7 @@ form.email {
   header p {
     margin-top: 20px; }
   .wrap50 {
-    width: 87%;
-    margin: 100px 30px; }
+    width: 80%; }
   .flexHeaderWrap {
     padding: 30px 0;
     -webkit-align-items: initial;
@@ -835,24 +762,3 @@ form.email {
 
 .footBox p {
   line-height: 24px; }
-
-@media (max-width: 414px) {
-  .wrap50 {
-    margin: 100px 0px; }
-  .heroBox {
-    min-width: 0; } }
-
-@media (max-width: 380px) {
-  header h1 {
-    font-size: 3.9rem; }
-  .hamNav ul a, .hamNav li a {
-    padding: 12px 0;
-    height: 54px; } }
-
-@media (max-width: 355px) {
-  header h1 {
-    font-size: 3rem; } }
-
-@media (max-width: 320px) {
-  header h1 {
-    font-size: 3.3rem; } }
